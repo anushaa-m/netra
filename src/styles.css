@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  --color-bg: #07090c;
+  --color-bg-elevated: #0c1016;
+  --color-surface: #11171f;
+  --color-surface-2: #171f2a;
+  --color-fg: #e8edf4;
+  --color-muted: #8b96a8;
+  --color-subtle: #5c6778;
+  --color-border: #1e2733;
+  --color-border-strong: #2a3544;
+  --color-accent: #5eead4;
+  --color-accent-fg: #04201c;
+  --color-info: #67e8f9;
+  --color-ok: #34d399;
+  --color-warn: #f5a524;
+  --color-critical: #f87171;
+  --color-observed: #94a3b8;
+  --color-predicted: #22d3ee;
+  --color-projected: #f5a524;
+  --color-ring: #5eead4;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --shadow-border: 0 0 0 1px rgb(255 255 255 / 0.07);
+  --shadow-border-hover: 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+    color: var(--color-fg);
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes netra-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes netra-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes netra-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
