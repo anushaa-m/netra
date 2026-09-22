@@ -37,7 +37,9 @@ export function DropdownMenuTrigger({
   const context = useContext(DropdownContext);
 
   if (!context) {
-    throw new Error("DropdownMenuTrigger must be used inside DropdownMenu");
+    throw new Error(
+      "DropdownMenuTrigger must be used inside DropdownMenu",
+    );
   }
 
   return (
@@ -64,10 +66,14 @@ export function DropdownMenuContent({
   const context = useContext(DropdownContext);
 
   if (!context) {
-    throw new Error("DropdownMenuContent must be used inside DropdownMenu");
+    throw new Error(
+      "DropdownMenuContent must be used inside DropdownMenu",
+    );
   }
 
-  if (!context.open) return null;
+  if (!context.open) {
+    return null;
+  }
 
   return (
     <div
